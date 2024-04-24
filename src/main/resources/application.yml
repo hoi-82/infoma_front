@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: front
+
+  output:
+    ansi:
+      enabled: ALWAYS
+
+  thymeleaf:
+    cache: false
+
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
+
+server:
+  port: 80
+  tomcat:
+    max-http-form-post-size: 120MB
+
+logging:
+  level:
+    com.info.infoma: debug

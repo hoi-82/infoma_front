@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="~{/common/head.html}"></th:block>
+
+    <!-- Search -->
+    <script th:src="@{/js/search.js}"></script>
+
+    <!-- Short -->
+    <script th:src="@{/js/short.js}"></script>
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}" />
+
+    <title>인포메</title>
+</head>
+<body>
+    <div th:replace="~{/fragile/header::header}"></div>
+    <div class="wrap">
+        <div class="main">
+            <h2>최근 검색된 캐릭터</h2>
+            <div class="short_area"></div>
+        </div>
+    </div>
+    <div th:replace="~{/fragile/footer::footer}"></div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+/* tag */
+body {
+    background-color: #202124;
+    color: #c8ccda;
+}
+
+header {
+    width:100%;
+    height: 40px;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+}
+
+input {
+    background: #303134;
+    border-radius: 12px;
+    width: 300px;
+    height: 30px;
+    color: #c8ccda;
+    margin-right: 10px;
+    border: 0px;
+    padding: 3px 10px;
+}
+
+/* class */
+.wrap {
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.infoma_icon {
+    width:30px;
+    height:30px;
+}
+
+/* index page short */
+.short_area {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.short_card {
+    border: 1px solid;
+    width: 250px;
+    height: auto;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 10px;
+    margin-top: 10px;
+    background: #303134;
+}
+
+.short_char_image {
+    background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+    width: 100%;
+    text-align: center;
+    margin: 0 10px;
+    border-radius: 10px 10px 0 0;
+    height: 60%;
+}
+
+.short_info {
+    display: block;
+    width: 100%;
+    height: 40%;
+    margin: 10px;
+}
+
+.short_option {
+    display: inline-block;
+    margin: 5px;
+    padding: 3px;
+    border-radius: 8px;
+    background: red;
+}
+
+/* base character */
+.character_wrap {
+    background: #303134;
+    border-radius: 12px;
+}

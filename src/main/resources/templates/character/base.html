@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <th:block th:replace="~{/common/head.html}"></th:block>
+
+    <!-- Character -->
+    <script th:src="@{/js/character.js}"></script>
+
+    <title th:text="'인포메 :: ' + ${character_name}"></title>
+</head>
+<body>
+    <input id="input_character_name" type="hidden" th:value="${character_name}"/>
+    <div th:replace="~{/fragile/header::header}"></div>
+    <div class="wrap">
+        <h2>캐릭터 정보</h2>
+        <div class="character_wrap">
+
+        </div>
+    </div>
+    <div th:replace="~{/fragile/footer::footer}"></div>
+</body>
+</html>
