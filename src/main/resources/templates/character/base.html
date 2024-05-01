@@ -8,6 +8,9 @@
     <!-- Character -->
     <script th:src="@{/js/character.js}"></script>
 
+    <!-- Search -->
+    <script th:src="@{/js/search.js}"></script>
+
     <title th:text="'인포메 :: ' + ${character_name}"></title>
 </head>
 <body>
@@ -16,7 +19,46 @@
     <div class="wrap">
         <h2>캐릭터 정보</h2>
         <div class="character_wrap">
-
+            <div class="base_info_wrap">
+                <div class="character_image_wrap">
+                    <div class="character_image"></div>
+                </div>
+                <div class="character_name"></div>
+                <div class="character_class"></div>
+            </div>
+        </div>
+    </div>
+    <div class="popup equipment_pop">
+        <div class="equipment_wrap">
+            <div class="equipment_layout">
+                <div class="equipment_item">
+                    <div id="ring4" class="item_box item_right_empty"></div>
+                    <div id="cap" class="item_box item_right_empty"></div>
+                    <div id="emblem" class="item_box"></div>
+                    <div id="ring3" class="item_box"></div>
+                    <div id="pendant2" class="item_box"></div>
+                    <div id="forehead" class="item_box item_right_empty"></div>
+                    <div id="badge" class="item_box"></div>
+                    <div id="ring2" class="item_box"></div>
+                    <div id="pendant" class="item_box"></div>
+                    <div id="eye_acc" class="item_box"></div>
+                    <div id="ear_acc" class="item_box"></div>
+                    <div id="medal" class="item_box"></div>
+                    <div id="ring" class="item_box"></div>
+                    <div id="weapon" class="item_box"></div>
+                    <div id="clothes" class="item_box"></div>
+                    <div id="shoulder" class="item_box"></div>
+                    <div id="sub_weapon" class="item_box"></div>
+                    <div id="poket" class="item_box"></div>
+                    <div id="belt" class="item_box"></div>
+                    <div id="pants" class="item_box"></div>
+                    <div id="gloves" class="item_box"></div>
+                    <div id="cape" class="item_box"></div>
+                    <div id="shoes" class="item_box item_left_empty"></div>
+                    <div id="android" class="item_box"></div>
+                    <div id="heart" class="item_box"></div>
+                </div>
+            </div>
         </div>
     </div>
     <div th:replace="~{/fragile/footer::footer}"></div>

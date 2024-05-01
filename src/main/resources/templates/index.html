@@ -18,8 +18,17 @@
     <div th:replace="~{/fragile/header::header}"></div>
     <div class="wrap">
         <div class="main">
+            <div class="banner_wrap">
+                <div class="banner">
+                    <div class="main_logo">인포메</div>
+                    <input type="text" name="search_name" placeholder="캐릭터 명을 입력하세요."/>
+                </div>
+
+            </div>
             <h2>최근 검색된 캐릭터</h2>
-            <div class="short_area"></div>
+            <div class="short">
+                <div class="short_area"></div>
+            </div>
         </div>
     </div>
     <div th:replace="~{/fragile/footer::footer}"></div>
