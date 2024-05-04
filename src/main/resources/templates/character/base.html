@@ -5,62 +5,62 @@
 <head>
     <th:block th:replace="~{/common/head.html}"></th:block>
 
-    <!-- Character -->
-    <script th:src="@{/js/character.js}"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!-- Search -->
     <script th:src="@{/js/search.js}"></script>
+
+    <!-- Character -->
+    <script th:src="@{/js/character.js}"></script>
+
+    <!-- Equipment -->
+    <script th:src="@{/js/equipment.js}"></script>
 
     <title th:text="'인포메 :: ' + ${character_name}"></title>
 </head>
 <body>
     <input id="input_character_name" type="hidden" th:value="${character_name}"/>
     <div th:replace="~{/fragile/header::header}"></div>
-    <div class="wrap">
-        <h2>캐릭터 정보</h2>
-        <div class="character_wrap">
+    <div class="wrap" id="info_wrap" style="display: none;">
+        <div class="character_wrap" style="display: none;">
             <div class="base_info_wrap">
                 <div class="character_image_wrap">
                     <div class="character_image"></div>
                 </div>
-                <div class="character_name"></div>
-                <div class="character_class"></div>
-            </div>
-        </div>
-    </div>
-    <div class="popup equipment_pop">
-        <div class="equipment_wrap">
-            <div class="equipment_layout">
-                <div class="equipment_item">
-                    <div id="ring4" class="item_box item_right_empty"></div>
-                    <div id="cap" class="item_box item_right_empty"></div>
-                    <div id="emblem" class="item_box"></div>
-                    <div id="ring3" class="item_box"></div>
-                    <div id="pendant2" class="item_box"></div>
-                    <div id="forehead" class="item_box item_right_empty"></div>
-                    <div id="badge" class="item_box"></div>
-                    <div id="ring2" class="item_box"></div>
-                    <div id="pendant" class="item_box"></div>
-                    <div id="eye_acc" class="item_box"></div>
-                    <div id="ear_acc" class="item_box"></div>
-                    <div id="medal" class="item_box"></div>
-                    <div id="ring" class="item_box"></div>
-                    <div id="weapon" class="item_box"></div>
-                    <div id="clothes" class="item_box"></div>
-                    <div id="shoulder" class="item_box"></div>
-                    <div id="sub_weapon" class="item_box"></div>
-                    <div id="poket" class="item_box"></div>
-                    <div id="belt" class="item_box"></div>
-                    <div id="pants" class="item_box"></div>
-                    <div id="gloves" class="item_box"></div>
-                    <div id="cape" class="item_box"></div>
-                    <div id="shoes" class="item_box item_left_empty"></div>
-                    <div id="android" class="item_box"></div>
-                    <div id="heart" class="item_box"></div>
+                <div class="character_base_info">
+                    <div class="character_name"></div>
+                    <div class="character_class"></div>
                 </div>
+
+            </div>
+
+        </div>
+
+        <div class="symbol_wrap" style="display: none;">
+            <div class="symbol_total">
+                <div>현재까지 심볼에 사용한 메소</div>
+                <div id="symbol_spent">0</div>
+            </div>
+            <div id="symbol_arc" class="symbol">
+
+            </div>
+            <div id="symbol_act" class="symbol">
+
             </div>
         </div>
     </div>
+
+    <div id="loading_fail_wrap" class="wrap" style="display: none;">
+        <div class="loading_fail_wrap">
+            <div>캐릭터 정보를 불러오는데 실패하였습니다.</div>
+            <div>2023년 12월 21일 데이터부터 조회할 수 있습니다.</div>
+            <div>메이플스토리 게임 데이터는 평균 15분 후 확인 가능합니다.</div>
+        </div>
+    </div>
+    <div th:replace="~{/fragile/popup::character_loading_popup}"></div>
+    <div th:replace="~{/fragile/popup::equipment_popup}"></div>
+    <div th:replace="~{/fragile/popup::cash_equipment_popup}"></div>
     <div th:replace="~{/fragile/footer::footer}"></div>
 </body>
 </html>
