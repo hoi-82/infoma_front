@@ -27,28 +27,47 @@
             <div class="base_info_wrap">
                 <div class="character_image_wrap">
                     <div class="character_image"></div>
+                    <img class="server_logo"/>
                 </div>
+
                 <div class="character_base_info">
-                    <div class="character_name"></div>
-                    <div class="character_class"></div>
+                    <div id="character_name"></div>
+                    <div id="character_class"></div>
+                    <div id="character_guild"></div>
+                    <div id="character_level"></div>
+                    <div id="character_exp"></div>
                 </div>
+            </div>
+            <div class="base_info_chart">
 
             </div>
-
-        </div>
-
-        <div class="symbol_wrap" style="display: none;">
-            <div class="symbol_total">
-                <div>현재까지 심볼에 사용한 메소</div>
-                <div id="symbol_spent">0</div>
-            </div>
-            <div id="symbol_arc" class="symbol">
-
-            </div>
-            <div id="symbol_act" class="symbol">
-
+            <div class="info_btn_wrap">
+                <button id="equipment_open" style="margin-right: 10px;">장비 열기</button>
+                <button id="cash_equipment_open">캐시장비 열기</button>
+                <br/>
+                <span class="info_title">* 단축키 E(장비), C(캐시장비)로도 창을 열 수 있으며, 같은 키 또는 ESC로 닫을 수 있습니다.</span>
             </div>
         </div>
+
+            <div class="sub_info_tap" style="display: none;">
+                <div class="sub_tap tap_on" id="tap_symbol">심볼</div>
+                <div class="sub_tap" id="tap_skill">스킬</div>
+            </div>
+            <div class="symbol_wrap" style="display: none;">
+                <div class="symbol_total">
+                    <div style="white-space: nowrap;">현재까지 심볼에 사용한 메소</div>
+                    <div id="symbol_spent">0 메소</div>
+                </div>
+                <div class="symbol_btn_wrap">
+                    <button class="open_all_symbol_btn">모두 열기</button>
+                </div>
+                <div id="symbol_arc" class="symbol">
+
+                </div>
+                <div id="symbol_act" class="symbol">
+
+                </div>
+            </div>
     </div>
 
     <div id="loading_fail_wrap" class="wrap" style="display: none;">

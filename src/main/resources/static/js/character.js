@@ -1,6 +1,6 @@
 /* 캐릭터 정보 */
 
-const character_base_url = 'http://localhost:8080/api/v1/char/basic/'
+const character_base_url = window.location.origin+':8080/api/v1/char/basic/'
 let character_name = null;
 
 let isReadyCharacterInfo = false;
@@ -15,6 +15,21 @@ $(document).ready(function() {
     searchCharacter(character_name);
     searchEquipment(character_name);
 
+});
+
+$(document).on('click', '#equipment_open', function () {
+    $('.equipment_pop').addClass('open_pop');
+});
+
+$(document).on('click', '#cash_equipment_open', function () {
+    $('.cash_equipment_pop').addClass('open_pop');
+});
+
+$(document).on('click', '.popup_close_btn', function() {
+    let all_pop = $('.popup');
+    $.each(all_pop, function() {
+        $(this).removeClass('open_pop');
+    });
 });
 
 $(document).on('keydown', 'body', function(e) {
@@ -74,7 +89,14 @@ function getCharacterBaseResponse(res) {
         const character_popularity = res.data.popularity;
         const character_propensity = res.data.propensity;
 
-        $('.character_image').css('background', 'url('+character_basic.character_image+') no-repeat');
+        $('.character_image').css('background', 'url("'+character_basic.character_image+'") center center no-repeat');
+        $('.server_logo').attr('src', window.location.origin+'/vendor/server_logo/'+character_basic.world_name+'.png');
+
+        $('#character_name').html(makeBasicTitle('캐릭터', character_basic.character_name));
+        $('#character_class').html(makeBasicTitle('클래스', character_basic.character_class));
+        $('#character_guild').html(makeBasicTitle('길드', isNullOrEmptyOrZero(character_basic.character_guild_name) ? '' : character_basic.character_guild_name));
+        $('#character_level').html(makeBasicTitle('레벨', character_basic.character_level));
+        $('#character_exp').html(makeBasicTitle('경험치', character_basic.character_exp_rate+"%"));
 
         $('#info_wrap').show();
         isReadyCharacterInfo = true;
@@ -82,6 +104,10 @@ function getCharacterBaseResponse(res) {
         getCharacterBaseFail();
     }
 
+}
+
+function makeBasicTitle(type, text) {
+    return '<span class="info_title">'+type+' : </span><span class="info_text">'+text+'</span>';
 }
 
 function getCharacterBaseFail(e) {
@@ -97,7 +123,7 @@ function checkReadyInfo() {
             clearInterval(checkId);
             $('.character_loading_pop').removeClass('open_pop');
             $('.character_wrap').fadeIn(500);
-            setTimeout(() => {$('.symbol_wrap').fadeIn(500)}, 400);
+            setTimeout(() => {$('.sub_info_tap').fadeIn(200); $('.symbol_wrap').fadeIn(500);}, 400);
             setTimeout(() => {$({val : 0}).animate({val : spent_meso}, {
                 duration: 4000
                 , easing: 'easeOutQuad'

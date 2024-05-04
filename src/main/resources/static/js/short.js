@@ -1,6 +1,6 @@
 /* 메인 쇼트 아이템 */
 
-const short_list_url = 'http://localhost:8080/api/v1/char/short';
+const short_list_url = window.location.origin+':8080/api/v1/char/short';
 const class_1 = '히어로,팔라딘,다크나이트,소울마스터,미하일,블래스터,데몬슬레이어,데몬어벤져,아란,카이저,아델,제로';
 const class_2 = '보우마스터,신궁,패스파인더,윈드브레이커,와일드헌터,메르세데스,카인';
 const class_3 = '아크메이지(불,독),아크메이지(썬,콜),비숍,플레임위자드,배틀메이지,에반,루미너스,일리움,라라,키네시스';

@@ -51,6 +51,17 @@ footer {
     width: 100%;
 }
 
+button {
+    border-radius: 10px;
+    background: #202124;
+    color: #c8ccda;
+    border: 0;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 input {
     background: #303134;
     border-radius: 12px;
@@ -194,6 +205,7 @@ input {
     background: #303134;
     border-radius: 12px;
     display: flex;
+    flex-wrap: wrap;
     padding: 30px;
     width: 70%;
     margin: 15px auto;
@@ -201,18 +213,19 @@ input {
 
 .base_info_wrap {
     width: 300px;
-    height: 300px;
     border-radius: 5px;
     padding: 10px;
     display: flex;
-    margin-bottom: 20px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .character_image_wrap {
     width: 150px;
     height: 150px;
     background: radial-gradient( #e9e9e9, #303134 );
-
+    margin-bottom: 20px;
     border-radius: 75px;
     display: flex;
     align-items: center;
@@ -225,6 +238,33 @@ input {
     content: "";
 }
 
+.character_base_info {
+    background-color: #202124;
+    padding: 15px;
+    border-radius: 12px;
+    min-width: 170px;
+}
+
+.info_title {
+    font-size: 0.8em;
+}
+
+.info_text {
+    font-weight: bold;
+}
+
+.server_logo {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    margin-left: 100px;
+    margin-bottom: 100px;
+}
+
+.info_btn_wrap {
+    height: 50px;
+}
+
 /* popup */
 .popup {
     display: none;
@@ -233,6 +273,20 @@ input {
     height: 100vh;
     top:0;
     background: rgba(0, 0, 0, 0.52);
+    overflow: auto;
+}
+
+.popup_btn_wrap {
+
+}
+
+.popup_close_btn {
+    background: url("../vendor/close-outline.svg") center center no-repeat;
+    filter: opacity(0.5) drop-shadow(0 0 0 #202124);
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin-left: auto;
 }
 
 .open_pop {
@@ -258,7 +312,7 @@ input {
 }
 
 .equipment_item {
-    padding: 38px 185px 0 15px;
+    padding: 8px 185px 0 15px;
     display: flex;
     flex-wrap: wrap;
 }
@@ -481,11 +535,38 @@ input {
     padding: 49px 48px 27px 50px;
 }
 
+.swiper {
+    width: 600px;
+    height: 300px;
+}
+
+.sub_info_tap {
+    display: flex;
+    margin: 15px auto 0 auto;
+    width: 70%;
+}
+
+.sub_tap {
+    background: #202124;
+    border: 1px solid #303134;
+    width: 70px;
+    padding: 3px 5px;
+    text-align: center;
+    margin-right: 5px;
+    border-radius: 12px 12px 0 0;
+    cursor: pointer;
+}
+
+.tap_on {
+    font_weight: bold;
+    background: #303134;
+}
+
 .symbol_wrap {
     padding: 30px;
     width: 70%;
     background: #303134;
-    margin: 15px auto;
+    margin: 0px auto 15px auto;
     border-radius: 12px;
     display: flex;
     flex-wrap: wrap;
@@ -494,7 +575,7 @@ input {
 .symbol_total {
     width: calc(100% - 30px);;
     height: 100px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     border-radius: 12px;
     background: #202124;
     display: flex;
@@ -510,6 +591,12 @@ input {
     white-space: nowrap;
 }
 
+.symbol_btn_wrap {
+    margin-bottom: 15px;
+    width: 100%;
+    text-align: right;
+}
+
 .symbol {
     width: 49%;
     min-width: 250px;
@@ -517,6 +604,9 @@ input {
     flex-wrap: nowrap;
     align-items: center;
     flex-direction: column;
+    max-height: 750px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .symbol:first-child {

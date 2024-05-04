@@ -1,6 +1,6 @@
 /* 캐릭터 장비 정보 */
 
-const character_equipment_url = 'http://localhost:8080/api/v1/char/equipment/'
+const character_equipment_url = window.location.origin+':8080/api/v1/char/equipment/'
 
 const potential_grade_map = {
     4 : 'legend'
@@ -443,7 +443,7 @@ function symbolGenerator(symbol) {
     symbol_unit += '<div class="symbol_progress">';
     symbol_unit += '<div class="symbol_progress_proceed" style="width: calc(100% * '+now_symbol_count/symbol_required[symbol_required.length-1]+'"></div>';
     for(let i=0; i<symbol_required.length; i++) {
-        symbol_unit += '<div class="symbol_dot" style="margin-left: calc(100% * '+symbol_required[i]/symbol_required[symbol_required.length-1]+' - 3px)"></div>';
+        symbol_unit += '<div class="symbol_dot" style="margin-left: calc(100% * '+symbol_required[i]/symbol_required[symbol_required.length-1]+')"></div>';
     }
     symbol_unit += '</div>';
     symbol_unit += '<div class="symbol_info">';
@@ -498,4 +498,11 @@ $(document).on('click', '.symbol_arrow', function() {
 
         $('#symbol_'+$(this).attr('symbol-data-key')).hide();
     }
+});
+
+$(document).on('click', '.open_all_symbol_btn', function () {
+    let down = $('.symbol_info_down_arrow');
+    $.each(down, function () {
+        $(this).click();
+    });
 });
