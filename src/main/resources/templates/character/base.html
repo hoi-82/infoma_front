@@ -39,7 +39,8 @@
                 </div>
             </div>
             <div class="base_info_chart">
-
+                <div class="base_info_chart_canvas" style="margin-right: 30px;"><canvas id="exp_chart"></canvas></div>
+                <div class="base_info_chart_canvas"><canvas id="level_chart"></canvas></div>
             </div>
             <div class="info_btn_wrap">
                 <button id="equipment_open" style="margin-right: 10px;">장비 열기</button>
@@ -72,9 +73,14 @@
 
     <div id="loading_fail_wrap" class="wrap" style="display: none;">
         <div class="loading_fail_wrap">
-            <div>캐릭터 정보를 불러오는데 실패하였습니다.</div>
-            <div>2023년 12월 21일 데이터부터 조회할 수 있습니다.</div>
-            <div>메이플스토리 게임 데이터는 평균 15분 후 확인 가능합니다.</div>
+            <div class="loading_fail_text">
+                <h2>캐릭터 정보를 불러오는데 실패하였습니다.</h2>
+                <ul>
+                    <li>서버에 문제가 발생했거나, 검색할 수 없는 닉네임입니다.</li>
+                    <li>2023년 12월 21일 데이터부터 조회할 수 있습니다.</li>
+                    <li>메이플스토리 게임 데이터는 평균 15분 후 확인 가능합니다.</li>
+                </ul>
+            </div>
         </div>
     </div>
     <div th:replace="~{/fragile/popup::character_loading_popup}"></div>

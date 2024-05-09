@@ -78,11 +78,22 @@ input {
     padding: 20px;
 }
 
+.loading_fail_wrap {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.loading_fail_text {
+    margin: auto;
+}
+
 .infoma_icon {
     /* width:30px;
     height:30px; */
     margin-right: 10px;
     cursor: pointer;
+    font-weight: bold;
 }
 
 .banner_wrap {
@@ -263,6 +274,20 @@ input {
 
 .info_btn_wrap {
     height: 50px;
+}
+
+.base_info_chart {
+    display: inline-flex;
+    width: calc(100% - 333px);
+    flex-wrap: wrap;
+    align-items: center;
+    min-width: 300px;
+}
+
+.base_info_chart_canvas {
+    width: 100%;
+    max-width: 400px;
+    height: 200px;
 }
 
 /* popup */

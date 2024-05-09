@@ -1,9 +1,11 @@
 /* 캐릭터 정보 */
 
-const character_base_url = window.location.origin+':8080/api/v1/char/basic/'
+const character_base_url = window.location.origin+':8080/api/v1/char/basic/';
+const character_level_statistics_url = window.location.origin+':8080/api/v1/statistics/char/level/';
 let character_name = null;
 
 let isReadyCharacterInfo = false;
+let isReadyLevelInfo = false;
 let isReadyEquipmentInfo = false;
 let checkId = null;
 
@@ -12,9 +14,9 @@ $(document).ready(function() {
     $('.character_loading_pop').addClass('open_pop');
 
     checkReadyInfo();
+    setTotalTimeout();
     searchCharacter(character_name);
     searchEquipment(character_name);
-
 });
 
 $(document).on('click', '#equipment_open', function () {
@@ -100,6 +102,8 @@ function getCharacterBaseResponse(res) {
 
         $('#info_wrap').show();
         isReadyCharacterInfo = true;
+
+        searchLevel(character_name);
     } else {
         getCharacterBaseFail();
     }
@@ -119,9 +123,11 @@ function getCharacterBaseFail(e) {
 
 function checkReadyInfo() {
     checkId = setInterval(() => {
-        if(isReadyCharacterInfo && isReadyEquipmentInfo) {
+        if(isReadyCharacterInfo && isReadyEquipmentInfo && isReadyLevelInfo) {
             clearInterval(checkId);
             $('.character_loading_pop').removeClass('open_pop');
+
+            // 정보 wrap 표출
             $('.character_wrap').fadeIn(500);
             setTimeout(() => {$('.sub_info_tap').fadeIn(200); $('.symbol_wrap').fadeIn(500);}, 400);
             setTimeout(() => {$({val : 0}).animate({val : spent_meso}, {
@@ -136,4 +142,80 @@ function checkReadyInfo() {
             })}, 900);
         }
     }, 500);
+}
+
+function setTotalTimeout() {
+    setTimeout(() => {
+        if(!isReadyCharacterInfo || !isReadyEquipmentInfo || !isReadyLevelInfo) {
+            getCharacterBaseFail();
+        }
+    }, 1000*10);
+}
+
+function searchLevel(character_name) {
+    $.ajax({
+        type: 'GET'
+        , headers: json_header
+        , url: character_level_statistics_url+character_name
+        , data: {}
+        , success: getCharacterLevelResponse
+        , error: getCharacterLevelFail
+    });
+}
+
+function getCharacterLevelResponse(res) {
+    console.log(res);
+    if(res.status) {
+        if(res.data == null || res.data.length == 0) return;
+        let exp_data = [];
+        let level_data = [];
+        let labels = [];
+
+        for(let i=0; i<res.data.length; i++) {
+            exp_data.push(parseFloat(res.data[i].exp_rate));
+            level_data.push(res.data[i].level);
+            labels.push(res.data[i].date);
+        }
+
+        console.log(exp_data);
+        console.log(level_data);
+        console.log(labels);
+
+        setTitleChart('exp_chart', exp_data, labels, '경험치 : ');
+        setTitleChart('level_chart', level_data, labels, '레벨 : ');
+
+        isReadyLevelInfo = true;
+    } else {
+        getCharacterLevelFail();
+    }
+}
+
+function getCharacterLevelFail(e) {
+    console.log(e);
+}
+
+function setTitleChart(chart_id, data, labels, label) {
+    const ctx = document.getElementById(chart_id).getContext('2d');
+    const chart = new Chart(ctx, {
+        type: 'bar'
+        , data : {
+            labels : labels
+            , datasets: [{
+                label: label
+                , data: data
+            }]
+        }
+        , options: {
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
+            , scales: {
+                y: {
+                   beginAtZero: false
+                }
+            }
+        }
+    });
 }
